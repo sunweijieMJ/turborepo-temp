@@ -43,5 +43,6 @@ module.exports = {
     '**/*.stylelintrc.js',
     '**/*.stylelintignore',
     'packages/**/*',
+    'apps/**/*',
   ],
 };
