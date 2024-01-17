@@ -1,5 +1,5 @@
 module.exports = {
   root: true,
-  ignorePatterns: ['apps/**', 'packages/**'],
+  ignorePatterns: ['apps/**', 'internal/**', 'packages/**'],
   extends: ['@repo/eslint-config/react.js'],
 };

@@ -42,7 +42,8 @@ module.exports = {
     '**/*.eslintignore',
     '**/*.stylelintrc.js',
     '**/*.stylelintignore',
-    'packages/**/*',
     'apps/**/*',
+    'internal/**/*',
+    'packages/**/*',
   ],
 };
