@@ -90,5 +90,85 @@ module.exports = defineConfig({
     node: true,
     browser: true,
   },
+  globals: {
+    process: true,
+    React: true,
+    JSX: true,
+  },
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+      tsx: true,
+    },
+  },
+  extends: [
+    'airbnb-base',
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:markdown/recommended',
+    'plugin:prettier/recommended',
+  ],
+  plugins: [
+    '@typescript-eslint',
+    'react',
+    'react-hooks',
+    'prettier',
+    'import',
+    'html',
+    'formatjs',
+  ],
+  overrides: [
+    // 禁止使用 require 语句来引入模块
+    {
+      files: ['*.js', '*.cjs'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 'off',
+      },
+    },
+    // 控制在导入模块时是否需要指定文件扩展名
+    {
+      files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
+      rules: {
+        'import/extensions': [
+          'error',
+          'ignorePackages',
+          {
+            js: 'never',
+            jsx: 'never',
+            ts: 'never',
+            tsx: 'never',
+          },
+        ],
+      },
+    },
+  ],
+  settings: {
+    // 指定具体的 React 版本号
+    react: {
+      version: 'detect',
+    },
+    // 指定模块导入解析器的配置
+    'import/resolver': {
+      alias: {
+        map: [
+          ['@', './src'],
+        ],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+      typescript: {
+        project,
+      },
+    },
+  },
   rules,
+  // 忽略文件
+  ignorePatterns: [
+    "node_modules/",
+    "dist/",
+    "build/",
+  ],
 });

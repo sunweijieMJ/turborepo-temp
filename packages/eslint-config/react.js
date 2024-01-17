@@ -169,5 +169,6 @@ module.exports = defineConfig({
   ignorePatterns: [
     "node_modules/",
     "dist/",
+    "build/",
   ],
 });

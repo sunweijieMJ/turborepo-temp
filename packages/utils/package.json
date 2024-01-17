@@ -1,0 +1,31 @@
+{
+  "name": "@repo/utils",
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    "./*": "./src/*"
+  },
+  "scripts": {
+    "lint": "eslint . --max-warnings 0",
+    "build": "pnpm run clean && tsc",
+    "clean": "pnpm run clean:dist && pnpm run -r --parallel clean",
+    "clean:dist": "rimraf dist"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "url-join": "^5.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@types/url-join": "^4.0.3",
+    "rimraf": "^5.0.5",
+    "rollup": "^4.9.5",
+    "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-esbuild": "^6.1.0",
+    "rollup-plugin-filesize": "^10.0.0",
+    "rollup-plugin-postcss": "^4.0.2"
+  }
+}
