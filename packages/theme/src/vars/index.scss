@@ -1,0 +1,8 @@
+@import './dark.css';
+@import './light.css';
+
+$colorPrimary: var(--primary-color);
+$baseBgColor: var(--base-bg-color);
+$baseTextColor: var(--base-text-color);
+$baseShadowColor: var(--base-shadow-color);
+$minWidth: 1280px;

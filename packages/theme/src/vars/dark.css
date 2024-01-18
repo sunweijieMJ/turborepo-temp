@@ -1,0 +1,6 @@
+:root[theme='dark'] {
+  --primary-color: #008989;
+  --base-bg-color: rgb(28, 28, 30);
+  --base-text-color: rgb(245, 245, 245);
+  --base-shadow-color: rgba(245, 245, 245, 0.1);
+}

@@ -6,10 +6,12 @@
   },
   "scripts": {
     "cz": "git-cz",
-    "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "build": "turbo build",
+    "build:components": "turbo build --filter components",
+    "build:theme": "turbo build --filter theme",
+    "build:utils": "turbo build --filter utils",
     "prepare": "husky install",
     "preinstall": "npx only-allow pnpm"
   },
@@ -53,6 +55,7 @@
     "@repo/eslint-config": "workspace:*",
     "@repo/stylelint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "babel-plugin-formatjs": "^10.5.12",
     "commitizen": "^4.3.0",
     "cspell": "^8.3.2",
     "cz-conventional-changelog": "^3.3.0",
