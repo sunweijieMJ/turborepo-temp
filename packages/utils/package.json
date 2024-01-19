@@ -2,21 +2,13 @@
   "name": "@repo/utils",
   "version": "0.0.0",
   "type": "module",
-  "main": "lib/index.js",
-  "module": "dist/es/index.mjs",
-  "types": "dist/es/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/es/index.d.ts",
-      "import": "./dist/es/index.mjs",
-      "require": "./dist/lib/index.js"
-    }
-  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "lint": "eslint . --max-warnings 0",
     "build": "pnpm run clean && rollup -c",
-    "clean": "pnpm run clean:dist && pnpm run -r --parallel clean",
-    "clean:dist": "rimraf dist"
+    "clean": "rimraf dist"
   },
   "dependencies": {
     "lodash": "^4.17.21",

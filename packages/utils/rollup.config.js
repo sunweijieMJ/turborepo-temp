@@ -1,37 +1,28 @@
-import { readdirSync } from 'fs';
-import { resolve } from 'path';
 import commonjs from '@rollup/plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import esbuild from 'rollup-plugin-esbuild';
 import typescript from 'rollup-plugin-typescript2';
 
-function getInput(dir) {
-  const files = readdirSync(dir);
-  return files
-    .filter((file) => file.endsWith('.ts'))
-    .map((file) => resolve(dir, file));
-}
-
 export default {
-  input: getInput('./src'),
+  input: './index.ts',
   output: [
     {
       format: 'esm',
-      dir: 'dist/es',
+      dir: 'dist',
       exports: undefined,
       preserveModules: true,
-      preserveModulesRoot: 'src',
+      preserveModulesRoot: '.',
       sourcemap: true,
-      entryFileNames: '[name].mjs',
+      entryFileNames: '[name].js',
     },
     {
       format: 'cjs',
-      dir: 'dist/lib',
+      dir: 'dist',
       exports: 'named',
       preserveModules: true,
-      preserveModulesRoot: 'src',
+      preserveModulesRoot: '.',
       sourcemap: true,
-      entryFileNames: '[name].js',
+      entryFileNames: '[name].cjs',
     },
   ],
   plugins: [
