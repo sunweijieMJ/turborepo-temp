@@ -1,17 +1,20 @@
 import commonjs from '@rollup/plugin-commonjs';
+import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import esbuild from 'rollup-plugin-esbuild';
 import typescript from 'rollup-plugin-typescript2';
 
+const extensions = ['.mjs', '.js', '.json', '.ts'];
+
 export default {
-  input: './index.ts',
+  input: './src/index.ts',
   output: [
     {
       format: 'esm',
       dir: 'dist',
       exports: undefined,
       preserveModules: true,
-      preserveModulesRoot: '.',
+      preserveModulesRoot: 'src',
       sourcemap: true,
       entryFileNames: '[name].js',
     },
@@ -20,16 +23,17 @@ export default {
       dir: 'dist',
       exports: 'named',
       preserveModules: true,
-      preserveModulesRoot: '.',
+      preserveModulesRoot: 'src',
       sourcemap: true,
       entryFileNames: '[name].cjs',
     },
   ],
   plugins: [
     nodeResolve({
-      extensions: ['.mjs', '.js', '.json', '.ts'],
+      extensions,
     }),
     commonjs(),
+    json(),
     typescript(),
     esbuild({
       sourceMap: true,

@@ -1,4 +1,4 @@
-import { DEFAULT_LOCALE } from '@repo/utils/contant/global';
+import { DEFAULT_LOCALE } from '@repo/utils/dist/contant/global';
 import classnames from 'classnames';
 import _ from 'lodash';
 import React, { memo, useEffect, useRef } from 'react';
@@ -58,7 +58,7 @@ type IPreload = 'auto' | 'metadata' | 'none';
 /**
  * 语言模式
  */
-type ILanguage = 'zh-CN' | 'en';
+type ILanguage = 'zh-CN' | 'en-US';
 
 /**
  * 视频格式

@@ -1,5 +1,4 @@
-import { readdirSync } from 'fs';
-import { resolve } from 'path';
+// import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
@@ -7,52 +6,55 @@ import esbuild from 'rollup-plugin-esbuild';
 import postcss from 'rollup-plugin-postcss';
 import typescript from 'rollup-plugin-typescript2';
 
-function getInput(dir) {
-  const files = readdirSync(dir);
-  return files
-    .filter((file) => file.endsWith('.ts'))
-    .map((file) => resolve(dir, file));
-}
+const extensions = ['.mjs', '.js', '.json', '.ts'];
+const styleExtensions = ['.css', '.scss', '.sass'];
 
 export default {
-  input: getInput('./src'),
+  input: './src/index.ts',
   output: [
     {
       format: 'esm',
-      dir: 'dist/es',
-      exports: undefined,
-      preserveModules: true,
-      preserveModulesRoot: 'src',
-      sourcemap: true,
-      entryFileNames: '[name].mjs',
-    },
-    {
-      format: 'cjs',
-      dir: 'dist/lib',
+      dir: 'dist/',
       exports: 'named',
       preserveModules: true,
       preserveModulesRoot: 'src',
       sourcemap: true,
       entryFileNames: '[name].js',
     },
+    {
+      format: 'cjs',
+      dir: 'dist/',
+      exports: 'named',
+      preserveModules: true,
+      preserveModulesRoot: 'src',
+      sourcemap: true,
+      entryFileNames: '[name].cjs',
+    },
   ],
   plugins: [
     nodeResolve({
-      extensions: ['.mjs', '.js', '.json', '.ts'],
+      extensions,
+      moduleDirectories: ['node_modules'],
     }),
     commonjs(),
     json(),
     postcss({
-      extract: true, // 输出单独的 CSS 文件
-      modules: false, // 禁用 CSS 模块化
-      use: ['sass'], // 使用 Sass 处理样式
-      minimize: true, // 压缩 CSS
+      minimize: true,
+      sourceMap: true,
+      extensions: styleExtensions,
     }),
-    typescript(),
+    typescript({
+      tsconfig: 'tsconfig.json',
+      include: ['src/**/*'],
+      exclude: ['node_modules', '**/*.spec.ts'],
+    }),
     esbuild({
       sourceMap: true,
       target: 'esnext',
     }),
+    // babel({
+    //   babelHelpers: 'bundled',
+    // }),
   ],
   external: ['react', 'react-dom'],
 };

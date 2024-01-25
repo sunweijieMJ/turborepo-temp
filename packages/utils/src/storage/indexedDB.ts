@@ -44,8 +44,9 @@ class IndexedDB {
       // 打开数据库失败
       request.onerror = (event) => {
         console.error(
-          `打开数据库失败: ${(event.currentTarget as IDBRequest<IDBDatabase>)
-            ?.error?.message}`,
+          `打开数据库失败: ${
+            (event.currentTarget as IDBRequest<IDBDatabase>)?.error?.message
+          }`,
         );
         reject(event);
       };
