@@ -18,7 +18,14 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "url-join": "^5.0.0"
+    "classnames": "^2.5.1",
+    "lodash": "^4.17.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.1.8",
+    "url-join": "^5.0.0",
+    "uuid": "^9.0.1",
+    "video.js": "^8.9.0"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
@@ -36,15 +43,9 @@
     "@types/url-join": "^4.0.3",
     "@types/uuid": "^9.0.7",
     "@types/video.js": "^7.3.56",
-    "classnames": "^2.5.1",
-    "lodash": "^4.17.21",
-    "react": "^18.2.0",
     "rimraf": "^5.0.5",
     "rollup-plugin-esbuild": "^6.1.0",
     "rollup-plugin-postcss": "^4.0.2",
-    "rollup-plugin-typescript2": "^0.36.0",
-    "styled-components": "^6.1.8",
-    "uuid": "^9.0.1",
-    "video.js": "^8.9.0"
+    "rollup-plugin-typescript2": "^0.36.0"
   }
 }

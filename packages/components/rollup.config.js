@@ -1,8 +1,8 @@
-// import babel from '@rollup/plugin-babel';
+import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
-import esbuild from 'rollup-plugin-esbuild';
+// import esbuild from 'rollup-plugin-esbuild';
 import postcss from 'rollup-plugin-postcss';
 import typescript from 'rollup-plugin-typescript2';
 
@@ -48,13 +48,23 @@ export default {
       include: ['src/**/*'],
       exclude: ['node_modules', '**/*.spec.ts'],
     }),
-    esbuild({
-      sourceMap: true,
-      target: 'esnext',
-    }),
-    // babel({
-    //   babelHelpers: 'bundled',
+    // esbuild({
+    //   sourceMap: true,
+    //   target: 'esnext',
     // }),
+    babel({
+      babelHelpers: 'bundled',
+      configFile: '../../babel.config.js',
+    }),
   ],
-  external: ['react', 'react-dom'],
+  external: [
+    'classnames',
+    'lodash',
+    'react',
+    'react-dom',
+    'styled-components',
+    'url-join',
+    'uuid',
+    'video.js',
+  ],
 };

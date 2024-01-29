@@ -7,7 +7,7 @@ module.exports = (api) => {
       '@babel/preset-typescript',
     ],
     plugins: [
-      [('@babel/plugin-proposal-decorators', { decoratorsBeforeExport: true })],
+      ['@babel/plugin-proposal-decorators', { version: '2023-05' }],
       '@babel/plugin-proposal-do-expressions',
       '@babel/plugin-transform-class-properties',
       '@babel/plugin-transform-nullish-coalescing-operator',
