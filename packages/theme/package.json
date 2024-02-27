@@ -2,7 +2,7 @@
   "name": "@repo/theme",
   "version": "0.0.0",
   "scripts": {
-    "lint": "stylelint src --max-warnings 0",
+    "lint": "stylelint 'src/**/*.{css,scss,less}' --max-warnings 0",
     "build": "pnpm run clean && gulp",
     "clean": "rimraf dist"
   },

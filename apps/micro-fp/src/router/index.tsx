@@ -4,7 +4,7 @@ import HomePage2 from '../pages/HomePage2';
 
 function Router() {
   // eslint-disable-next-line no-underscore-dangle
-  const basename = window.__POWERED_BY_QIANKUN__ ? '/micro-app' : '/';
+  const basename = window.__POWERED_BY_QIANKUN__ ? '/micro-fp' : '/';
 
   return (
     <BrowserRouter basename={basename}>

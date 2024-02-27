@@ -1,5 +1,5 @@
 {
-  "name": "micro-app",
+  "name": "micro-fp",
   "version": "1.0.0",
   "scripts": {
     "dev": "PORT=9201 craco start",

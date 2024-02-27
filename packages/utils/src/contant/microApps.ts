@@ -24,13 +24,13 @@ export const microAppList: MicroApp[] = [
     name: 'micro-fp',
     activeRule: ['/micro-fp'],
     container: '#micro-fp',
-    entry: 'http://localhost:3001/',
+    entry: 'http://localhost:9201/',
   },
   {
     name: 'micro-opod',
     activeRule: ['/micro-opod'],
     container: '#micro-opod',
-    entry: 'http://localhost:3002/',
+    entry: 'http://localhost:9202/',
   },
 ];
 

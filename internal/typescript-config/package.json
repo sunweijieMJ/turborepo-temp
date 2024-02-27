@@ -1,10 +1,6 @@
 {
   "name": "@repo/typescript-config",
   "version": "0.0.0",
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
   "devDependencies": {
     "@formatjs/ts-transformer": "^3.13.9"
   }

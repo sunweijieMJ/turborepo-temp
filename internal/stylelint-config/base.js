@@ -77,5 +77,4 @@ module.exports = {
       },
     ], // 不允许未知的伪类选择器
   },
-  ignoreFiles: ["node_modules", "dist"]
 };

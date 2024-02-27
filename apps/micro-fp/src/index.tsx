@@ -10,11 +10,11 @@ let root: ReactDOM.Root | null = null;
 function render(container?: ShadowRoot) {
   if (container) {
     root = ReactDOM.createRoot(
-      container.querySelector('#micro-app-root') as HTMLElement,
+      container.querySelector('#micro-fp-root') as HTMLElement,
     );
   } else {
     root = ReactDOM.createRoot(
-      document.querySelector('#micro-app-root') as HTMLElement,
+      document.querySelector('#micro-fp-root') as HTMLElement,
     );
   }
 
